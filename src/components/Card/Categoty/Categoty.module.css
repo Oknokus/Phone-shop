@@ -1,0 +1,33 @@
+.category{
+    width: 100%;   
+    display: grid;    
+    grid-template-columns: repeat(3, 350px);   
+    justify-content: center; 
+}
+.category_container{
+    width: 200px;
+    height: 280px;
+    margin-top: 30px;
+    border: none;
+    border-radius: var(--border_smoll);
+    text-align: center;
+    background-color: var(--color_white_dark);
+    box-shadow: 0px 0px 0px 1px;
+    position: relative;
+    cursor: pointer;  
+}
+.container_img{
+    margin-top: 20px;
+    width: 130px;
+    height: 130px;
+    border-radius: var(--border_smoll);
+}
+.container_favorites{
+    position: absolute;
+    right: 0;  
+    cursor: pointer;  
+}
+.container_title{
+    text-decoration: dashed;
+    color: rgb(42, 42, 158);
+}

@@ -1,0 +1,7 @@
+.catalog_container{      
+    display: grid;
+    grid-template-columns: repeat(4, 240px);
+    padding: 30px 20px;  
+    justify-content: center;
+    
+}

@@ -1,0 +1,19 @@
+.products{
+    padding: 20px 30px;
+    max-width: 800px; 
+    margin: 0 auto;
+    box-shadow: 0px 0px 3px 1px;
+    margin-top: 20px;
+    border-radius: var(--border_smoll);
+    background-color: var(--color_white_dark); 
+    text-align: center;
+}
+.container_title{
+    color: rgb(128, 105, 78);
+    font-size: 30px;
+}
+.container_img{
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+}
