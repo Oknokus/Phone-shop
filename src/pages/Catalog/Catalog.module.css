@@ -1,3 +1,7 @@
+.catalog{
+   width: 100%;
+   justify-content: center;     
+}
 .catalog_container{      
     display: grid;
     grid-template-columns: repeat(4, 240px);

@@ -13,6 +13,9 @@
     width: 80px;
     height: 80px;
 }
+.container_item{
+    position: relative;    
+}
 .white_buttonContainer{
     display: flex;
     list-style-type: none;    

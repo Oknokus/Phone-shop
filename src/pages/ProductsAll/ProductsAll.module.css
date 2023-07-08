@@ -1,0 +1,28 @@
+.productsAll{   
+    display: grid;    
+    grid-template-columns: repeat(3, 250px);   
+    justify-content: center;  
+}
+.productsAll_container{
+    position: relative;
+    width: 250px;
+    text-align: center;
+
+    
+}
+.container_img{
+    margin-top: 20px;
+    width: 130px;
+    height: 130px;
+    border-radius: var(--border_smoll);
+}
+.container_favorites{
+    position: absolute;
+    right: 30px;
+    top: 10px;  
+    cursor: pointer;  
+}
+.container_title{
+    text-decoration: dashed;
+    color: rgb(42, 42, 158);
+}

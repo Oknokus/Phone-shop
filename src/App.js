@@ -8,6 +8,7 @@ import Dect from "./pages/Catalog/Dect/Dect";
 import Speakerphones from "./pages/Catalog/Speakerphones/Speakerphones";
 import Product from "./pages/Product";
 import ProductsAll from "./pages/ProductsAll/ProductsAll";
+import ProductsCart from "./pages/ProductsAll/ProductsCart/ProductsCart";
 
 import NotFound from "./pages/NotFound/NotFound";
 
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/*" element={<NotFound/>}/> 
           <Route path="/product/:id" element={<Product/>}/>  
           <Route path="/productsAll" element={<ProductsAll/>}/>
+          <Route path="/productsCart/:id" element={<ProductsCart/>}/>
           
           {/* <Route path="/Cards" element={<Cards/>}/>
                    

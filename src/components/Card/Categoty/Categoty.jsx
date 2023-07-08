@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+
+import { CustumContext } from '../../../config/Context';
 
 import styles from './Categoty.module.css';
-import { useContext, useEffect, useState } from 'react';
-import { CustumContext } from '../../../config/Context';
 
 
 const Categoty = ({category}) => {
