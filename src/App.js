@@ -9,6 +9,7 @@ import Speakerphones from "./pages/Catalog/Speakerphones/Speakerphones";
 import Product from "./pages/Product";
 import ProductsAll from "./pages/ProductsAll/ProductsAll";
 import ProductsCart from "./pages/ProductsAll/ProductsCart/ProductsCart";
+import Favorites from "./pages/Favorites/Favorites";
 
 import NotFound from "./pages/NotFound/NotFound";
 
@@ -28,6 +29,7 @@ const App = () => {
           <Route path="/product/:id" element={<Product/>}/>  
           <Route path="/productsAll" element={<ProductsAll/>}/>
           <Route path="/productsCart/:id" element={<ProductsCart/>}/>
+          <Route path="/favorites" element={<Favorites/>}/>
           
           {/* <Route path="/Cards" element={<Cards/>}/>
                    

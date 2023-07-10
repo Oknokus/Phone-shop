@@ -5,7 +5,8 @@ import styles from './CardProduct.module.css';
 
 
 const CardProduct = ({products}) => { 
-    if(products !== undefined) {
+   
+    if(products) {        
         return (
             <div               
                 className={styles.products}

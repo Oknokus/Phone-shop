@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { CustumContext } from '../../../config/Context';
 
-import Categoty from '../../../components/Card/Categoty/Categoty';
+import Category from '../../../components/Card/Category/Category';
 
 
 import styles from './Speakerphones.module.css';
@@ -16,7 +16,7 @@ const Speakerphones = () => {
     
     return (
         <>
-            <Categoty category={speakerphones}/>
+            <Category category={speakerphones}/>
         </>        
     )
 }

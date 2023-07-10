@@ -33,6 +33,11 @@ const Header = () => {
                                     className={styles.white_link}
                                     to={"/productsAll"}>Все товары</Link>
                             </li>
+                            <li>
+                                <Link
+                                    className={styles.white_link}
+                                    to={"/favorites"}>Избранное</Link>
+                            </li>
 
                             <li>
                                 <Link 

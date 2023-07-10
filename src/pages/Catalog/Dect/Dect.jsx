@@ -3,7 +3,7 @@ import { useContext } from 'react';
 
 import { CustumContext } from '../../../config/Context';
 
-import Categoty from '../../../components/Card/Categoty/Categoty';
+import Category from '../../../components/Card/Category/Category';
 
 
 import styles from './Dect.module.css';
@@ -16,7 +16,7 @@ const Dect = () => {
     
     return (
         <>
-            <Categoty category={dect}/>
+            <Category category={dect}/>
         </>        
     )
 }

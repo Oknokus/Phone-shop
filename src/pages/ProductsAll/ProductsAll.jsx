@@ -4,12 +4,14 @@ import { useContext, useEffect, useState } from 'react';
 import { CustumContext } from '../../config/Context';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-import Categoty from '../../components/Card/Categoty/Categoty';
+import Categoty from '../../components/Card/Category/Category';
 import CardProduct from '../Product/CardProduct/CardProduct';
+import CatalogFilter from '../../components/CatalogFilter/CatalogFilter';
+
+import api from '../../config/Api';
 
 
 import styles from './ProductsAll.module.css';
-import api from '../../config/Api';
 
 
 const ProductsAll = () => { 
@@ -21,7 +23,9 @@ const ProductsAll = () => {
         getProductsAll,
         allProducts,      
         setItem,
-        search
+        search,
+        slider,
+        setSlider
     } = useContext(CustumContext)  
     
     useEffect(() => {          
@@ -31,7 +35,9 @@ const ProductsAll = () => {
     
     if(allProducts.length) {
         return (
-            <section className={styles.productsAll}>                
+            <section className={styles.productsAll}>
+                <CatalogFilter slider={slider} setSlider={setSlider}/>  
+                <div className={styles.productsAll_containerAll}>                             
                     {             
                         allProducts.map((elem, index) => (  
                             <Link to={`/productsCart/${elem.id}`}
@@ -49,7 +55,8 @@ const ProductsAll = () => {
                                 </div>
                             </Link>
                         ))
-                    }       
+                    }   
+                </div>    
             </section>
         )
     }    

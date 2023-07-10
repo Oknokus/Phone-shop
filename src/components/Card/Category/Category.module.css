@@ -4,6 +4,7 @@
     grid-template-columns: repeat(3, 200px);   
     justify-content: center; 
     grid-column-gap: 50px;
+    margin-top: 20px;
 }
 .category_container{
     width: 200px;
@@ -24,9 +25,15 @@
     border-radius: var(--border_smoll);
 }
 .container_favorites{
-    position: absolute;
-    right: 0;  
+    position: relative;
+    float: right;    
     cursor: pointer;  
+    transition: 0.3s;
+    width: 20px;
+    height: 20px;    
+}
+.container_favorites:hover{
+    transform: scale(1.1);
 }
 .container_title{
     text-decoration: dashed;

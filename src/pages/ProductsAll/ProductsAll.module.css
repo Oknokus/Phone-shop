@@ -1,14 +1,19 @@
-.productsAll{   
+.productsAll{      
+    width: 100%;
+    display: flex; 
+    justify-content: center; 
+    margin: 0 auto;
+    padding: 0 0px 0 40px;   
+}
+.productsAll_containerAll{
     display: grid;    
-    grid-template-columns: repeat(3, 250px);   
-    justify-content: center;  
+    grid-template-columns: repeat(4, 250px);   
+    justify-content: center; 
 }
 .productsAll_container{
     position: relative;
     width: 250px;
-    text-align: center;
-
-    
+    text-align: center;    
 }
 .container_img{
     margin-top: 20px;
