@@ -1,13 +1,10 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import { useContext } from 'react';
-import { useEffect } from 'react';
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
 import { CustumContext } from '../../config/Context';
-
 
 import RangeSlider from "./RangeSlider";
 import InputSelect from "./InputSelect";

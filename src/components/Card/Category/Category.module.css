@@ -5,6 +5,7 @@
     justify-content: center; 
     grid-column-gap: 50px;
     margin-top: 20px;
+    grid-row-gap: 20px;
 }
 .category_container{
     width: 200px;

@@ -15,8 +15,7 @@ const Product = () => {
     const params = useParams();
 
     const location = useLocation();
-    const {category} = location.state;
-
+    const {path} = location.state;
 
     const {       
         products,
@@ -25,10 +24,10 @@ const Product = () => {
 
 
     useEffect(() => {
-        api(`${category}/${params.id}`).json()
+        api(`${path}/${params.id}`).json()
             .then(res => setProducts(res))
     }, [])
-
+    
     return (
         <>
             <CardProduct products={products}/>

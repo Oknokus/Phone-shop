@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { CustumContext } from '../../config/Context';
 import { useEffect } from 'react';
 
@@ -15,8 +15,7 @@ const Catalog = () => {
         dect,
         videophones,
         speakerphones,
-        getProductsAll,
-        slider
+        getProductsAll        
     } = useContext(CustumContext);
 
   

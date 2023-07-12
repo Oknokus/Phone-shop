@@ -1,19 +1,23 @@
-import {createContext, useEffect, useState} from "react";
+import {createContext, useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
 import api from "./Api";
+
 import Category from "../components/Card/Category/Category";
 
 export const CustumContext = createContext();
 
-export const Context = (props) => {     
+export const Context = (props) => {   
     const[phone, setPhone] = useState([]); 
     const[dect, setDect] = useState([]); 
     const[videophones, setVideophones] = useState([]); 
     const[speakerphones, setSpeakerphones] = useState([]);
         
     const[products, setProducts] = useState();    
-    const [search, setSearch] = useState("");
-    const [searchResult, setSearchResult] = useState([]);
+    const[search, setSearch] = useState("");
+    const[searchResult, setSearchResult] = useState([]);
     const[state, setState] = useState("");
+    const[path, setPath] = useState("")
 
 
     const[allProducts, setAllProducts] = useState([]);
@@ -23,7 +27,8 @@ export const Context = (props) => {
     const [category, setCategory] = useState([]);
     const [sort, setSort] = useState([]);
     const [slider, setSlider] = useState([0, 3000]);
-     
+
+        
     const getProductsPhone= (queryParamsApi, queryParamsFromTo) => {
             api("phone").json()
             .then(res => setPhone([...res]))
@@ -61,11 +66,10 @@ export const Context = (props) => {
     }
 
     const searchProducts = () => {
-        setSearchResult([]);
-           
+        setSearchResult([]);      
+
         const queryParamsApi = `?${search.length ? `category_like=${search}&`: ""}${category.length ? `title_like=${category}&` : ""}${sort.length && sort !== "rate" ? `_sort=price&_order=${sort}&` : sort.length ? `_sort=rate&_order=desc` : ""}`
        
-
         searchProduct('phone', queryParamsApi);
         searchProduct('dect', queryParamsApi);
         searchProduct('videophones', queryParamsApi);
@@ -99,7 +103,9 @@ export const Context = (props) => {
         setSlider,
         category, 
         sort, 
-        setSort,      
+        setSort,
+        path, 
+        setPath,      
         setState,
         setCategory,
         favorites, 

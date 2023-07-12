@@ -15,7 +15,7 @@ const Favorites = () => {
     favorites, 
     setFavorites,
    } = useContext(CustumContext);
-   console.log(favorites)
+
     return (
         <>
             <Category category={favorites}/>

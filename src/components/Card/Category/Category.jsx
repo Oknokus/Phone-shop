@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
-
+import { Link } from 'react-router-dom';    
+import { useContext } from 'react';
 import { CustumContext } from '../../../config/Context';
 
 import wishlistImg from "../../../assets/favoritesICon/wishlistImg.svg";
@@ -11,16 +10,13 @@ import heartIcon from "../../../assets/favoritesICon/heartIcon.png";
 import styles from './Category.module.css';
 
 
-const Category = ({category}) => {
+const Category = ({category}) => {   
    const{   
     favorites, 
     setFavorites,
     clickHandlefavorites
    } = useContext(CustumContext);
-   
-
-    const location = useLocation().pathname.slice(1);
-
+      
      
     return (
         <div className={styles.category}>
@@ -34,7 +30,7 @@ const Category = ({category}) => {
                                 
                         <Link 
                             to={`/product/${elem.id}`}
-                            state={{category: location}} >                                
+                            state={{path: elem.page.slice(1)}}>                                
                             <div className={styles.category_container}>                           
                                 <img
                                     className={styles.container_img} 
