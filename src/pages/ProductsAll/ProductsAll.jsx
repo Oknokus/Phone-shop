@@ -15,26 +15,23 @@ import styles from './ProductsAll.module.css';
 
 
 const ProductsAll = () => { 
-    const navigate = useNavigate();
-    const location = useLocation();
-
-  
+     
     const{
         searchResult,
         searchProducts,
         setItem,    
         slider,
         setSlider,
-        search
+        search,
+        category,
+        sort
     } = useContext(CustumContext)  
     
-    useEffect(() => {          
+    useEffect(() => {    
         searchProducts()
-    }, [search]);
-     
-    
-    if (!searchResult.length) {
-        return null
+    }, [search, category, sort, slider]);
+         
+    if (!searchResult.length) {        
         }
     return (
             <section className={styles.productsAll}>

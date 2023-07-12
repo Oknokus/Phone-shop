@@ -26,7 +26,7 @@ const Category = ({category}) => {
         <div className={styles.category}>
              {             
                 category.map((elem, index )=> (
-                    <div>
+                    <div key={index}>
                         <img 
                             className={styles.container_favorites}
                             onClick={() => clickHandlefavorites(elem)}
@@ -34,8 +34,7 @@ const Category = ({category}) => {
                                 
                         <Link 
                             to={`/product/${elem.id}`}
-                            state={{category: location}} 
-                            key={index}>                                
+                            state={{category: location}} >                                
                             <div className={styles.category_container}>                           
                                 <img
                                     className={styles.container_img} 

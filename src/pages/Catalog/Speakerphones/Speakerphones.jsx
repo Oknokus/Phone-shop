@@ -12,7 +12,7 @@ import styles from './Speakerphones.module.css';
 const Speakerphones = () => {
     const {
         speakerphones
-    } = useContext(CustumContext)
+    } = useContext(CustumContext)   
     
     return (
         <>

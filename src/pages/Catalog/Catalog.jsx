@@ -15,9 +15,11 @@ const Catalog = () => {
         dect,
         videophones,
         speakerphones,
-        getProductsAll
+        getProductsAll,
+        slider
     } = useContext(CustumContext);
 
+  
     useEffect(() => {
         getProductsAll()       
     }, [])  

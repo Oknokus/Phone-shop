@@ -1,5 +1,6 @@
 import {createContext, useEffect, useState} from "react";
 import api from "./Api";
+import Category from "../components/Card/Category/Category";
 
 export const CustumContext = createContext();
 
@@ -8,12 +9,11 @@ export const Context = (props) => {
     const[dect, setDect] = useState([]); 
     const[videophones, setVideophones] = useState([]); 
     const[speakerphones, setSpeakerphones] = useState([]);
-    
-    
-    const[page, setPage] = useState();
+        
     const[products, setProducts] = useState();    
     const [search, setSearch] = useState("");
     const [searchResult, setSearchResult] = useState([]);
+    const[state, setState] = useState("");
 
 
     const[allProducts, setAllProducts] = useState([]);
@@ -24,53 +24,56 @@ export const Context = (props) => {
     const [sort, setSort] = useState([]);
     const [slider, setSlider] = useState([0, 3000]);
      
-    const getProductsPhone= (queryParamsApi) => {
+    const getProductsPhone= (queryParamsApi, queryParamsFromTo) => {
             api("phone").json()
             .then(res => setPhone([...res]))
     };       
         
-    const getProductsDect= (queryParamsApi) => {    
+    const getProductsDect= (queryParamsApi, queryParamsFromTo) => {    
             api("dect").json()
             .then(res => setDect([...res]))       
     };
 
-    const getProductsVideophones= (queryParamsApi) => {  
+    const getProductsVideophones= (queryParamsApi, queryParamsFromTo) => {  
             api("videophones").json()
             .then(res => setVideophones([...res]))              
     };
 
-    const getProductsSpeakerphones= (queryParamsApi) => {   
+    const getProductsSpeakerphones= (queryParamsApi, queryParamsFromTo) => {   
             api("speakerphones").json()
             .then(res => setSpeakerphones([...res]))          
     };
       
-    const getProductsAll = () => {
-        getProductsPhone();
-        getProductsDect();
-        getProductsVideophones();
-        getProductsSpeakerphones();
+    const getProductsAll = (queryParamsApi) => {
+        getProductsPhone(queryParamsApi);
+        getProductsDect(queryParamsApi);
+        getProductsVideophones(queryParamsApi);
+        getProductsSpeakerphones(queryParamsApi);
     };
 
     const searchProduct = (type, queryParamsApi) => {
-        return api(`${type}${queryParamsApi}`).json()
+        const queryParamsFromTo = `price_gte=${slider[0]}&price_lte=${slider[1]}`; 
+
+        return api(`${type}${queryParamsApi}${queryParamsFromTo}`).json()
             .then(res => {
                 setSearchResult(prev => [...prev, ...res])
-            })
+            })           
     }
 
     const searchProducts = () => {
         setSearchResult([]);
+           
+        const queryParamsApi = `?${search.length ? `category_like=${search}&`: ""}${category.length ? `title_like=${category}&` : ""}${sort.length && sort !== "rate" ? `_sort=price&_order=${sort}&` : sort.length ? `_sort=rate&_order=desc` : ""}`
+       
 
-        const queryParamsApi = search.length ? `?category_like=${search}` : "";
         searchProduct('phone', queryParamsApi);
         searchProduct('dect', queryParamsApi);
         searchProduct('videophones', queryParamsApi);
-        searchProduct('speakerphones', queryParamsApi);
+        searchProduct('speakerphones', queryParamsApi);         
     };
 
-
     const clickHandlefavorites = (elem) => {
-        let changefavorites = favorites.find(item => item.page === elem.page & item.id === elem.id)
+        const changefavorites = favorites.find(item => item.page === elem.page & item.id === elem.id)
 
         if(changefavorites) {
             setFavorites(favorites.filter(item => item.id !== elem.id || item.page !== elem.page))           
@@ -78,19 +81,16 @@ export const Context = (props) => {
             setFavorites([...favorites, elem])        
         }         
     }
-
         
     const value = { 
         phone,
         dect,
         videophones,
-        speakerphones,
-        page,
+        speakerphones,   
         products, 
         setAllProducts,
         allProducts,
-        setProducts,
-        setPage,
+        setProducts,      
         item, 
         search,
         setSearch,
@@ -99,7 +99,8 @@ export const Context = (props) => {
         setSlider,
         category, 
         sort, 
-        setSort,
+        setSort,      
+        setState,
         setCategory,
         favorites, 
         setFavorites,      
