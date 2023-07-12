@@ -1,7 +1,4 @@
-import PropTypes from 'prop-types';
 import { Link, useLocation } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
-import { CustumContext } from '../../../config/Context';
 
 import logoHeader from "../../../assets/logo_header.svg";
 import Input from "../../Input";
@@ -13,7 +10,6 @@ import styles from './Header.module.css';
 const Header = () => { 
     const location = useLocation();  
    
-
     return (
         <section className={styles.header}>
             <div className={styles.header_container}>
@@ -42,7 +38,7 @@ const Header = () => {
                             <li>
                                 <Link 
                                     className={styles.white_link}
-                                    to={"*"}>LayOut</Link>
+                                    to={"*"}>Not Found</Link>
                             </li>                           
                         </ul> 
                     </div>
@@ -75,7 +71,7 @@ const Header = () => {
             </div>
            
         </section>
-    )
-}
+        )
+    }
 
 export default Header;

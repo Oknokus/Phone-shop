@@ -29,13 +29,7 @@ const App = () => {
           <Route path="/product/:id" element={<Product/>}/>  
           <Route path="/productsAll" element={<ProductsAll/>}/>
           <Route path="/productsCart/:id" element={<ProductsCart/>}/>
-          <Route path="/favorites" element={<Favorites/>}/>
-          
-          {/* <Route path="/Cards" element={<Cards/>}/>
-                   
-          <Route path="*" element={<NotFound/>}/>   */} 
-          {/* <Route path="/favorites" element={<Favorites/>}/>  */}
-
+          <Route path="/favorites" element={<Favorites/>}/>    
         </Route>
       </Routes>
     </div> 

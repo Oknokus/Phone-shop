@@ -46,8 +46,12 @@ const CatalogFilter = ({slider, setSlider}) => {
             </div>            
                 <Button style={{width:"100%"}} variant="contained" onClick={() => changeReset()}>Сбросить</Button>
         </div>
-    )
-}
+        )
+    }
 
+    CatalogFilter.propTypes = {
+        slider: PropTypes.array,
+        setSlider: PropTypes.func
+    }   
 
 export default CatalogFilter;

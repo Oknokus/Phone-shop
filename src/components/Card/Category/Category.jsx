@@ -43,7 +43,11 @@ const Category = ({category}) => {
                 ))
             }
         </div>
-    )
-}
+        )
+    }
+
+    Category.propTypes = {
+        category: PropTypes.array
+    }
 
 export default Category;

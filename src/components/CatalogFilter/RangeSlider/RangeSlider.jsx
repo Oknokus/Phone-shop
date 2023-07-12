@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
@@ -22,8 +23,12 @@ const RangeSlider = ({slider, setSlider}) => {
         max={3000}      
       />
     </Box>
-  );
-}
+    );
+  }
 
+  RangeSlider.propTypes = {
+    slider: PropTypes.array,
+    setSlider: PropTypes.func  
+  } 
 
 export default RangeSlider;

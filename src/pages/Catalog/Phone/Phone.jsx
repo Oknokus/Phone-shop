@@ -9,7 +9,7 @@ import Category from '../../../components/Card/Category/Category';
 import styles from './Phone.module.css';
 
 
-const Phone = ({type}) => {
+const Phone = () => {
     const {
         phone
     } = useContext(CustumContext)

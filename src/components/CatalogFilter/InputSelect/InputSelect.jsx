@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import * as React from 'react';
 import { useState } from 'react';
 import Box from '@mui/material/Box';
@@ -35,7 +36,14 @@ const BasicSelect = ({title, state, setState, array}) => {
         </Select>
       </FormControl>
     </Box>
-  );
-}
+    );
+  }
+
+  BasicSelect.propTypes = {
+    title: PropTypes.string,
+    state: PropTypes.array,
+    setState:  PropTypes.func,
+    array: PropTypes.array    
+  } 
 
 export default BasicSelect;

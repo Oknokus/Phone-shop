@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 
-
 import styles from './CardProduct.module.css';
 
 
@@ -8,7 +7,7 @@ const CardProduct = ({products}) => {
     if (!products) {
         return null
     }     
-    return (
+    return (                    
             <div               
                 className={styles.products}
                 key={products.id}>
@@ -21,8 +20,12 @@ const CardProduct = ({products}) => {
                         <span>Гарантия: {products.Guarantee} месяцев</span>
                         <h4 className={styles.container_price}>Цена: {products.price}</h4>
                 </div>
-            </div>
+            </div>        
         )
-    }    
+    }  
+
+    CardProduct.propTypes = {
+        products: PropTypes.object
+    };
 
 export default CardProduct;

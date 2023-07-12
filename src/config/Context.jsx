@@ -1,9 +1,6 @@
 import {createContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 
 import api from "./Api";
-
-import Category from "../components/Card/Category/Category";
 
 export const CustumContext = createContext();
 

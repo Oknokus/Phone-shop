@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import { useLocation, useParams } from 'react-router-dom';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { CustumContext } from '../../config/Context';
 
@@ -10,6 +9,7 @@ import CardProduct from './CardProduct/CardProduct';
 
 
 import styles from './Product.module.css';
+
 
 const Product = () => {
     const params = useParams();
@@ -22,14 +22,13 @@ const Product = () => {
         setProducts
     } = useContext(CustumContext);
 
-
     useEffect(() => {
         api(`${path}/${params.id}`).json()
             .then(res => setProducts(res))
     }, [])
     
     return (
-        <>
+        <>             
             <CardProduct products={products}/>
         </>
     )

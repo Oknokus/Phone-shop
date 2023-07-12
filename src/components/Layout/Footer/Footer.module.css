@@ -1,0 +1,27 @@
+.footer{
+    position: fixed;   
+    bottom: 0; 
+    left: 0;
+    right: 0    ; 
+}
+.footer_container{    
+    width: 100%;
+    height: 30px;
+    background-color: var(--header_grey);
+    border-radius: var(--border_smoll);
+    display: flex;   
+    justify-content: space-around; 
+    align-items: center;   
+    margin-top: 30px;
+    box-shadow: 1px 2px 3px 3px;  
+    padding: 10px 30px;
+}
+.container_links{
+    display: flex;
+}
+.social__img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    transition: 0.3s ease-in-out;
+}

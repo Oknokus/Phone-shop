@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { CustumContext } from '../../config/Context';
 import { useEffect } from 'react';
@@ -24,14 +23,16 @@ const Catalog = () => {
     }, [])  
      
      return (   
-        <section className={styles.catalog}>
-            <div className={styles.catalog_container}>
-                <Card catalog={phone}/> 
-                <Card catalog={dect}/> 
-                <Card catalog={videophones}/> 
-                <Card catalog={speakerphones}/>                
-            </div>
-        </section>
+        <>            
+            <section className={styles.catalog}>
+                <div className={styles.catalog_container}>
+                    <Card catalog={phone}/> 
+                    <Card catalog={dect}/> 
+                    <Card catalog={videophones}/> 
+                    <Card catalog={speakerphones}/>                
+                </div>
+            </section>
+        </>
     )
 }
 export default Catalog;

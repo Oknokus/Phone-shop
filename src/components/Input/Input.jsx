@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useContext, useEffect, useState } from 'react';
 import { CustumContext } from '../../config/Context';
 
@@ -14,8 +13,7 @@ const Input = () => {
   
 useEffect(() => {  
 }, [search])
-     
-
+ 
   return (
     <>
       <input 
@@ -25,7 +23,7 @@ useEffect(() => {
         type="search" 
         placeholder='Введите имя для поиска'/>        
     </>
-  )
-}
+   )
+  }
 
 export default Input;
