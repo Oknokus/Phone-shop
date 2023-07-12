@@ -14,18 +14,12 @@ const Catalog = () => {
         phone,
         dect,
         videophones,
-        speakerphones,      
-        getProductsPhone,
-        getProductsDect,
-        getProductsVideophones,
-        getProductsSpeakerphones    
+        speakerphones,
+        getProductsAll
     } = useContext(CustumContext);
 
     useEffect(() => {
-        getProductsPhone()
-        getProductsDect()
-        getProductsVideophones()
-        getProductsSpeakerphones()       
+        getProductsAll()       
     }, [])  
      
      return (   

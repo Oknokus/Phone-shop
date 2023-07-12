@@ -11,45 +11,61 @@ export const Context = (props) => {
     
     
     const[page, setPage] = useState();
-    const[products, setProducts] = useState();
+    const[products, setProducts] = useState();    
+    const [search, setSearch] = useState("");
+    const [searchResult, setSearchResult] = useState([]);
+
+
     const[allProducts, setAllProducts] = useState([]);
     const[item, setItem] = useState([]); 
     const[favorites, setFavorites] = useState([]);
-    const[search, setSearch] = useState(""); 
+
     const [category, setCategory] = useState([]);
     const [sort, setSort] = useState([]);
     const [slider, setSlider] = useState([0, 3000]);
-    
-    
-    let queryParamsApi = search.length ? `?category_like=${search}` : "";     
-
-
-    const getProductsPhone= () => {
+     
+    const getProductsPhone= (queryParamsApi) => {
             api("phone").json()
             .then(res => setPhone([...res]))
     };       
         
-    const getProductsDect= () => {    
+    const getProductsDect= (queryParamsApi) => {    
             api("dect").json()
             .then(res => setDect([...res]))       
     };
 
-    const getProductsVideophones= () => {  
+    const getProductsVideophones= (queryParamsApi) => {  
             api("videophones").json()
             .then(res => setVideophones([...res]))              
     };
 
-    const getProductsSpeakerphones= () => {   
+    const getProductsSpeakerphones= (queryParamsApi) => {   
             api("speakerphones").json()
             .then(res => setSpeakerphones([...res]))          
     };
-  
-    const getProductsAll= () => { 
+      
+    const getProductsAll = () => {
         getProductsPhone();
         getProductsDect();
         getProductsVideophones();
         getProductsSpeakerphones();
-        setAllProducts([...phone, ...dect, ...videophones, ...speakerphones])
+    };
+
+    const searchProduct = (type, queryParamsApi) => {
+        return api(`${type}${queryParamsApi}`).json()
+            .then(res => {
+                setSearchResult(prev => [...prev, ...res])
+            })
+    }
+
+    const searchProducts = () => {
+        setSearchResult([]);
+
+        const queryParamsApi = search.length ? `?category_like=${search}` : "";
+        searchProduct('phone', queryParamsApi);
+        searchProduct('dect', queryParamsApi);
+        searchProduct('videophones', queryParamsApi);
+        searchProduct('speakerphones', queryParamsApi);
     };
 
 
@@ -63,14 +79,6 @@ export const Context = (props) => {
         }         
     }
 
-
-    // useEffect(() => {
-    //     let queryParamsFromTo = `price_gte=${slider[0]}&price_lte=${slider[1]}`;        
-    //     let queryParamsApi = `?${search.length ? `title_like=${search}&`: ""}${category.length ? `category=${category}&` : ""}${sort.length && sort !== "rate" ? `_sort=price&_order=${sort}&` : sort.length ? `_sort=rate&_order=desc` : ""}`
-        
-    //     api(`product${queryParamsApi}${queryParamsFromTo}`).json()
-    //     .then(res => setCatalog(res))      
-    // }, [search, category, sort, slider]);
         
     const value = { 
         phone,
@@ -94,11 +102,9 @@ export const Context = (props) => {
         setSort,
         setCategory,
         favorites, 
-        setFavorites,
-        getProductsPhone,
-        getProductsDect,
-        getProductsVideophones,
-        getProductsSpeakerphones,
+        setFavorites,      
+        searchResult,
+        searchProducts,
         getProductsAll,
         clickHandlefavorites         
     };

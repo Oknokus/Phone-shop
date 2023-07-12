@@ -6,7 +6,9 @@ import styles from './Card.module.css';
 const Card = ({catalog}) => {   
     let item = catalog[0];
     
-    if(item) {
+    if (!item) {
+        return null
+    }
         return (
             <Link to={`${item.page}`}>
                 <div 
@@ -18,7 +20,6 @@ const Card = ({catalog}) => {
                 </div> 
             </Link>      
         )
-    }     
-}
+    }  
 
 export default Card;

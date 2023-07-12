@@ -12,8 +12,7 @@ const Input = () => {
     setSearch
   }= useContext(CustumContext)
   
-useEffect(() => {     
-       
+useEffect(() => {  
 }, [search])
      
 

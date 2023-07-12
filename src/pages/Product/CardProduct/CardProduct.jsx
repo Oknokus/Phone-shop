@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import styles from './CardProduct.module.css';
 
 
-const CardProduct = ({products}) => { 
-   
-    if(products) {        
-        return (
+const CardProduct = ({products}) => {
+    if (!products) {
+        return null
+    }     
+    return (
             <div               
                 className={styles.products}
                 key={products.id}>
@@ -23,6 +24,5 @@ const CardProduct = ({products}) => {
             </div>
         )
     }    
-}
 
 export default CardProduct;

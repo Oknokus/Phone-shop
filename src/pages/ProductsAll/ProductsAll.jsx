@@ -20,26 +20,28 @@ const ProductsAll = () => {
 
   
     const{
-        getProductsAll,
-        allProducts,      
-        setItem,
-        search,
+        searchResult,
+        searchProducts,
+        setItem,    
         slider,
-        setSlider
+        setSlider,
+        search
     } = useContext(CustumContext)  
     
     useEffect(() => {          
-         getProductsAll()
-    }, []);
+        searchProducts()
+    }, [search]);
      
     
-    if(allProducts.length) {
-        return (
+    if (!searchResult.length) {
+        return null
+        }
+    return (
             <section className={styles.productsAll}>
                 <CatalogFilter slider={slider} setSlider={setSlider}/>  
                 <div className={styles.productsAll_containerAll}>                             
                     {             
-                        allProducts.map((elem, index) => (  
+                        searchResult.map((elem, index) => (  
                             <Link to={`/productsCart/${elem.id}`}
                                 onClick={() => setItem(elem)}                           
                                 key={index}>                           
@@ -59,7 +61,6 @@ const ProductsAll = () => {
                 </div>    
             </section>
         )
-    }    
-}
+    } 
 
 export default ProductsAll;

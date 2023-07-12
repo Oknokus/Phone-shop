@@ -13,17 +13,20 @@ import styles from './Product.module.css';
 
 const Product = () => {
     const params = useParams();
-     
-    const{
-        page,
-        products, 
+
+    const location = useLocation();
+    const {category} = location.state;
+
+
+    const {       
+        products,
         setProducts
-       } = useContext(CustumContext);
-      
-         
+    } = useContext(CustumContext);
+
+
     useEffect(() => {
-        api(`${page}/${params.id}`).json()
-        .then(res => setProducts(res))                         
+        api(`${category}/${params.id}`).json()
+            .then(res => setProducts(res))
     }, [])
 
     return (

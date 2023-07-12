@@ -21,15 +21,17 @@ const CatalogFilter = ({slider, setSlider}) => {
         category,
         setCategory,
         sort,
-        setSort  
+        setSort,
+        setSearch,
+        searchResult
     } = useContext(CustumContext);
 
     const changeReset = () => {
         setCategory("");
         setSlider([0, 3000]);
-        setSort("")        
+        setSearch("")   
     };  
-   
+
     return (
         <div className={styles.section_filter}>
             <h2 className={styles.filter_titleItem}>Раздел</h2>

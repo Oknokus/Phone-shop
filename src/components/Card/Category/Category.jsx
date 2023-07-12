@@ -12,9 +12,7 @@ import styles from './Category.module.css';
 
 
 const Category = ({category}) => {
-   const{
-    setPage,
-    page,
+   const{   
     favorites, 
     setFavorites,
     clickHandlefavorites
@@ -36,7 +34,7 @@ const Category = ({category}) => {
                                 
                         <Link 
                             to={`/product/${elem.id}`}
-                            onClick={() => setPage(location)} 
+                            state={{category: location}} 
                             key={index}>                                
                             <div className={styles.category_container}>                           
                                 <img
